@@ -1,0 +1,15 @@
+db:
+    image: docker.io/postgres
+
+rabbit:
+    image: docker.io/gonkulatorlabs/rabbitmq
+
+ingester:
+  build: ./ingester
+  links:
+    - db
+    - rabbit
+
+  environment:
+    - DEBUG=false
+    - SEND_EMAILS=false
