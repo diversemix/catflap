@@ -6,6 +6,7 @@ rabbit:
 
 ingester:
   build: ./ingester
+  
   links:
     - db
     - rabbit
@@ -13,3 +14,7 @@ ingester:
   environment:
     - DEBUG=false
     - SEND_EMAILS=false
+    - TWITTER_CKEY={{ ckey }}
+    - TWITTER_CSECRET={{ csecret }}
+    - TWITTER_ATOKEN={{ atoken }}
+    - TWITTER_ASECRET={{ asecret }}
